@@ -1,13 +1,26 @@
 import kivy
-kivy.require('1.0.6') # replace with your current kivy version !
-
 from kivy.app import App
-from kivy.uix.label import Label
+from widgets.PingPongGame import *
+
+kivy.require('1.0.6') # replace with your current kivy version !
 
 
 class MyApp(App):
+
+    def ___init__(self, **kwargs):
+        return super().__init__(self, kwargs)
+
+    def get_application_name(self) -> str:
+        return 'Pong Game'
+
+    def load_kv(self, filename=None):
+        return super().load_kv("design/pongGameDesign.kv")
+
+    def get_application_icon(self):
+        return super().get_application_icon()
+
     def build(self):
-        return Label(text='Hello world')
+        return PongGameWidget()
 
 
 if __name__ == '__main__':
