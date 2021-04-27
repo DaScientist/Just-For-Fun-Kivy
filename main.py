@@ -1,8 +1,10 @@
 import kivy
 from kivy.app import App
 from widgets.PingPongGame import *
-
-kivy.require('1.0.6') # replace with your current kivy version !
+from kivy.core.window import Window
+Window.fullscreen = True
+Window.maximize()
+kivy.require('1.0.6')  # replace with your current kivy version !
 
 
 class MyApp(App):
@@ -20,6 +22,7 @@ class MyApp(App):
         return super().get_application_icon()
 
     def build(self):
+        self.icon = 'assets/logo.jpg'
         return PongGameWidget()
 
 
